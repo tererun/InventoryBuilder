@@ -26,6 +26,7 @@ public class InventoryBuilderListener implements Listener {
             if (inventoryBuilder.getCreatedInventory().equals(e.getClickedInventory())) {
                 for (InventoryItem inventoryItem : inventoryBuilder.getKeyItemMap().values()) {
                     if (inventoryItem.getItemStack().equals(clickedItem)) {
+                        if (inventoryItem.isCancelled()) e.setCancelled(true);
                         if (inventoryItem instanceof ClickInventoryItem clickInventoryItem) {
                             clickInventoryItem.getClickAction().click(e);
                         }

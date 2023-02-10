@@ -11,6 +11,11 @@ public class ClickInventoryItem extends InventoryItem {
         this.clickAction = clickAction;
     }
 
+    public ClickInventoryItem(ItemStack itemStack, ClickAction clickAction, boolean cancelled) {
+        super(itemStack, cancelled);
+        this.clickAction = clickAction;
+    }
+
     public ClickAction getClickAction() {
         return clickAction;
     }
