@@ -18,6 +18,9 @@ public class InventoryBuilder {
     private Map<Character, InventoryItem> keyItemMap;
 
     public InventoryBuilder(String title, int size) {
+        if (size % 9 != 0) {
+            throw new IllegalArgumentException("Size must be a multiple of 9");
+        }
         this.uuid = UUID.randomUUID();
         this.title = title;
         this.size = size;
@@ -59,6 +62,9 @@ public class InventoryBuilder {
     }
 
     public Inventory build(Plugin plugin) {
+        if (rows.size() != size / 9) {
+            throw new IllegalArgumentException("Rows is not added enough");
+        }
         InventoryBuilderProvider inventoryBuilderProvider = InventoryBuilderProvider.getInventoryBuilderProviderMap().get(plugin);
         if (inventoryBuilderProvider == null) {
             throw new NullPointerException("Plugin is not registered");
