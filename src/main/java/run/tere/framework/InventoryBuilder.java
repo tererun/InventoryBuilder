@@ -43,11 +43,12 @@ public class InventoryBuilder {
         for (int rowIndex = 0; rowIndex < rows.size(); rowIndex++) {
             ItemRow itemRow = rows.get(rowIndex);
             String[] split = itemRow.getPattern().split("");
-            for (int splitIndex = 0, splitLength = split.length; splitIndex < splitLength; splitIndex++) {
+            int splitLength = split.length;
+            for (int splitIndex = 0; splitIndex < splitLength; splitIndex++) {
                 String key = split[splitIndex];
                 InventoryItem inventoryItem = keyItemMap.get(key.charAt(0));
                 if (inventoryItem == null) throw new NullPointerException("Pattern key is not set");
-                inventory.setItem(rowIndex + splitIndex, inventoryItem.getItemStack());
+                inventory.setItem(rowIndex * splitIndex, inventoryItem.getItemStack());
             }
         }
         return inventory;
