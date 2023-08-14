@@ -48,7 +48,7 @@ public class InventoryBuilder {
                 String key = split[splitIndex];
                 InventoryItem inventoryItem = keyItemMap.get(key.charAt(0));
                 if (inventoryItem == null) throw new NullPointerException("Pattern key is not set");
-                inventory.setItem(rowIndex * splitIndex, inventoryItem.getItemStack());
+                inventory.setItem(rowIndex * 9 + splitIndex, inventoryItem.getItemStack());
             }
         }
         return inventory;
