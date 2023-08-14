@@ -16,6 +16,7 @@ public class InventoryBuilderProvider {
 
     public InventoryBuilderProvider(Plugin plugin, InventoryBuilderListener inventoryBuilderListener) {
         this.plugin = plugin;
+        this.inventoryBuilderProviderMap = new HashMap<>();
         this.inventoryBuilderListener = inventoryBuilderListener;
         this.registeredInventoryBuilders = new ArrayList<>();
     }
